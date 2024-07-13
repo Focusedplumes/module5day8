@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [menu, setMenu] = useState([]);
+  const [todo, setTodo] = useState([]);
 
   useEffect(() => {
     async function loadData() {
-      const res = await fetch("/api/menu");
+      const res = await fetch("/api/todo");
       const data = await res.json();
-      setMenu(data.menu);
+      setTodo(data.todo);
     }
     loadData();
   }, []);
 
-  function addToCart(id) {
-    fetch(`/api/cart`, {
+  function addToDo(id) {
+    fetch(`/api/todo`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
