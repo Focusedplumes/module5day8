@@ -22,7 +22,7 @@ export default function Home() {
     });
   }
 
-  if (menu.length === 0) {
+  if (todo.length === 0) {
     return <h1>Loading...</h1>;
   }
 
