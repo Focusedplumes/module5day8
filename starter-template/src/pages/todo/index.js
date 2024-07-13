@@ -18,17 +18,17 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: id, quantity: 1 }),
+      body: JSON.stringify({ id: id, done: done, notdone: notDone }),
     });
   }
 
   if (todo.length === 0) {
-    return <h1>Loading...</h1>;
+    return <h1>To Do List</h1>;
   }
 
   return (
     <>
-      <h1>Welcome to Coffee Shop</h1>
+      <h1>The List</h1>
       <h4>Here is our menu:</h4>
       <div
         style={{
@@ -53,7 +53,7 @@ export default function Home() {
               <h3>{item.name}</h3>
               <p>{item.description}</p>
               <p>{item.price}</p>
-              <button onClick={() => addToCart(item.id)}>Add to cart</button>
+              <button onClick={() => addToDo(item.done)}>Done</button>
             </div>
           );
         })}
